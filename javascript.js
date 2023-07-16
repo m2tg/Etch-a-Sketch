@@ -1,20 +1,42 @@
+let gridSize = 16;
+
 let etchContainer = document.querySelector('.container');
 
-for (let i = 1;i <= (16*16); i++) {
-    let div = document.createElement('div');
-    div.classList.add(`etch${i}`);
-    div.style.cssText = 'width: 6.25%; height: 6.25%;'
-    etchContainer.appendChild(div);
+function generateGrid() {
+
+    document.querySelectorAll('[class*="etch"]').forEach( (element) =>{
+        element.remove();
+    });
+
+    for (let i = 1;i <= (gridSize ** 2); i++) {
+        let div = document.createElement('div');
+        div.classList.add(`etch${i}`);
+        div.style.cssText = `width: ${100/gridSize}%; height: ${100/gridSize}%;`
+        etchContainer.appendChild(div);
+}
+etchDiv();
 }
 
-function etchDiv(element) {
+function etchDiv() {
     //console.log(this);
-    this.classList.add('etched');
+    const etchableDivs = etchContainer.querySelectorAll('[class*="etch"]');
+
+    etchableDivs.forEach( (div) => {
+        div.addEventListener('mouseover', function (e) {
+            this.classList.add('etched');
+        });
+    })
+    
 }
 
-const etchableDivs = etchContainer.querySelectorAll('[class*="etch"]');
+generateGrid();
 
-etchableDivs.forEach( (div) => {
-    div.addEventListener('mouseover', etchDiv);
+
+const button = document.querySelector('#gridSize');
+
+button.addEventListener('click', (e) => {
+    gridSize = prompt("Enter grid size");
+    generateGrid();
 })
+
 

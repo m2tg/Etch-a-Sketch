@@ -16,10 +16,18 @@ body {
     border: solid 2px black;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    align-items: flex-start;
 }
 
-.etched{
+[class*="etch"] {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+.etched {
     background-color: black;
-    
+}
+
+#gridSize {
+    margin-left: 20px;
 }
