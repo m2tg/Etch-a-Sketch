@@ -1,0 +1,25 @@
+html{
+    min-height: 100% 
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 75vh;
+    height: 75vh;
+    display: flex;
+    border: solid 2px black;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.etched{
+    background-color: black;
+    
+}
